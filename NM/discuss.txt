@@ -1,0 +1,36 @@
+methods:
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+    biseciton class -> algo, data:process 
+    interpolation -> algo, data:process
+
+
+
+UI: 
+    - 3 sections
+        - input
+        - steps/ output
+        - graph
+        
