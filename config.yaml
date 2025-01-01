@@ -1,0 +1,9 @@
+window:
+  size: !tup [1100, 650]
+  title: "Numerical Methods"
+  resizable: false
+  icon: "icon.png"
+
+color:
+  background:  !tup [255, 255, 255]
+  text:  !tup [0, 0, 0]
