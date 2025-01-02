@@ -1,5 +1,6 @@
 import pygame
 import pygame_gui
+from pygame_gui.core import ObjectID
 from NM import Config
 
 class App(Config):
@@ -8,17 +9,51 @@ class App(Config):
         super().__init__()
         pygame.init()
         
-        self.window = pygame.display.set_mode(self.config_window['size'])
-        pygame.display.set_caption(self.config_window['title'])
+        self.window = pygame.display.set_mode(self.screen['size'])
+        pygame.display.set_caption(self.screen['title'])
         
-        self.manager = pygame_gui.UIManager(self.config_window['size'])
+        self.manager = pygame_gui.UIManager(self.screen['size'], 'theme.json')
+        self.elements()
         
+    def elements(self):
+
+        lable = 'Numerical Method'
+        label_width = self.w_scale * self.font['size'] * len(lable)
+        label_height = self.h_scale * self.font['size']
+        lable_posx = self.s_width//2 - label_width//2
+        lable_posy = 40
+
         self.label = pygame_gui.elements.UILabel(
-            relative_rect=pygame.Rect((250, 250), (200, 200)),
-            text='Hello World!',
+            relative_rect=pygame.Rect((lable_posx, lable_posy), (label_width, label_height)),
+            text=lable,
             manager=self.manager,
-            
+            object_id=ObjectID(class_id = "@label", object_id="#title")
         )
+
+        w_gap = self.s_width//2 - 20
+        top_gap = 90
+        btm_gap = self.s_height - 140
+
+        frame_rect_1 = pygame.Rect(20, top_gap, w_gap, btm_gap)
+        frame_1 = pygame_gui.elements.UIPanel(
+            relative_rect=frame_rect_1,
+            manager=self.manager,
+            object_id=ObjectID(class_id = "@frame", object_id="#input")
+        )
+        frame_rect_2 = pygame.Rect(w_gap + 20, top_gap, w_gap, btm_gap)
+        frame_2 = pygame_gui.elements.UIPanel(
+            relative_rect=frame_rect_2,
+            manager=self.manager,
+            object_id=ObjectID(class_id = "@frame", object_id="#output")
+        )
+
+        seek_bar = pygame_gui.elements.UIHorizontalSlider(
+            relative_rect=pygame.Rect(20, self.s_height - 45, w_gap*2, 23),  
+            start_value=0,
+            value_range=(0, 100),
+            manager=self.manager
+        )
+
 
     def run(self):
         clock = pygame.time.Clock()
@@ -32,7 +67,7 @@ class App(Config):
             
             self.manager.update(time_delta)
             
-            self.window.fill(self.config_color['background'])
+            self.window.fill(self.color['background'])
             
             self.manager.draw_ui(self.window)
             pygame.display.update()
