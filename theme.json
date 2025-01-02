@@ -1,0 +1,23 @@
+{
+    "@frame": {
+        "colours": {
+            "dark_bg":"#161616"
+        },
+
+        "misc":{
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "5",
+            "border_width": "0"
+        }
+    },
+
+    "@label": {
+        "colours": {
+            "normal_text": "#F7F9F7"
+        },
+        "font":{
+            "name": "mono",
+            "size": "20"
+        }
+    }
+}
