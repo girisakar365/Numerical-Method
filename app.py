@@ -2,17 +2,23 @@ import pygame
 import pygame_gui
 from pygame_gui.core import ObjectID
 from NM import Config
+import os
 
 class App(Config):
     def __init__(self):
         
         super().__init__()
         pygame.init()
-        
-        self.window = pygame.display.set_mode(self.screen['size'])
+
+        # set display size according to screen size
+        os.environ['SDL_VIDEO_CENTERED'] = '1'
+        info = pygame.display.Info()
+        screen_width, screen_height = info.current_w, info.current_h    
+        self.screen_size = (screen_width - 10 , screen_height - 100)
+        self.window = pygame.display.set_mode(self.screen_size, pygame.RESIZABLE)
         pygame.display.set_caption(self.screen['title'])
         
-        self.manager = pygame_gui.UIManager(self.screen['size'], 'theme.json')
+        self.manager = pygame_gui.UIManager(self.screen_size, 'theme.json')
         self.elements()
         
     def elements(self):
